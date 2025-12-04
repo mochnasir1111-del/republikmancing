@@ -1,285 +1,155 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adu Sengit Dengan Konten Kreator – Republik Mancing</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teknik Umpan Malam Hari yang Bikin Patin Melesat — Republik Mancing</title>
+  <meta name="description" content="Racikan umpan malam hari untuk memancing patin, tips pemasangan, spot rekomendasi, dan pengalaman lapangan." />
+  <meta property="og:title" content="Teknik Umpan Malam Hari yang Bikin Patin Melesat" />
+  <meta property="og:description" content="Racikan umpan malam hari untuk memancing patin, tips pemasangan, spot rekomendasi, dan pengalaman lapangan." />
+  <meta property="og:image" content="https://picsum.photos/1200/630?random=2" />
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* --------------------------
-       RESET
-    --------------------------- */
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-    body{
-      background:#f5f5f5;
-      color:#222;
-    }
-
-    /* --------------------------
-       HEADER NAV MIRIP DETIK
-    --------------------------- */
-    header{
-      width:100%;
-      background:#ffffff;
-      border-bottom:1px solid #ddd;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
-    .nav{
-      max-width:1180px;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 10px;
-    }
-    .logo{
-      font-size:24px;
-      font-weight:700;
-      color:#0066ff;
-    }
-    nav a{
-      margin-left:16px;
-      text-decoration:none;
-      color:#444;
-      font-size:15px;
-    }
-    nav a:hover{
-      color:#0066ff;
-    }
-
-    /* --------------------------
-       BREAKING NEWS
-    --------------------------- */
-    .breaking{
-      background:#ff0000;
-      padding:8px 0;
-      color:#fff;
-      font-weight:bold;
-      font-size:15px;
-    }
-    .breaking marquee{
-      font-size:14px;
-    }
-
-    /* --------------------------
-       WRAPPER
-    --------------------------- */
-    .container{
-      max-width:1180px;
-      margin:20px auto;
-      display:flex;
-      gap:35px;
-    }
-
-    /* --------------------------
-       KONTEN ARTIKEL
-    --------------------------- */
-    .content{
-      width:68%;
-      background:#fff;
-      padding:20px;
-      border-radius:6px;
-      box-shadow:0 0 8px rgba(0,0,0,.06);
-    }
-    .content h1{
-      font-size:28px;
-      margin-bottom:10px;
-      line-height:1.3;
-    }
-    .meta{
-      color:#777;
-      font-size:14px;
-      margin-bottom:18px;
-    }
-    .content img{
-      width:100%;
-      border-radius:6px;
-      margin:15px 0;
-    }
-    .isi p{
-      font-size:17px;
-      line-height:1.7;
-      margin-bottom:18px;
-      color:#333;
-    }
-
-    /* --------------------------
-       SHARE BUTTONS
-    --------------------------- */
-    .share-box{
-      margin:20px 0;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    .share-box span{
-      font-weight:bold;
-    }
-    .share-box a{
-      padding:8px 12px;
-      background:#eee;
-      border-radius:4px;
-      text-decoration:none;
-      font-size:14px;
-      color:#333;
-    }
-    .share-box a:hover{
-      background:#ddd;
-    }
-
-    /* --------------------------
-       RELATED
-    --------------------------- */
-    .related{
-      margin-top:30px;
-    }
-    .related h3{
-      margin-bottom:15px;
-      font-size:20px;
-    }
-    .related a{
-      display:block;
-      margin-bottom:12px;
-      font-size:16px;
-      text-decoration:none;
-      color:#0066cc;
-    }
-    .related a:hover{
-      text-decoration:underline;
-    }
-
-    /* --------------------------
-       SIDEBAR POPULER
-    --------------------------- */
-    .sidebar{
-      width:30%;
-    }
-    .side-box{
-      background:#fff;
-      padding:15px;
-      border-radius:6px;
-      margin-bottom:25px;
-      box-shadow:0 0 8px rgba(0,0,0,.06);
-    }
-    .side-box h3{
-      font-size:20px;
-      margin-bottom:15px;
-    }
-    .side-box a{
-      display:block;
-      font-size:15px;
-      margin-bottom:12px;
-      text-decoration:none;
-      color:#444;
-    }
-    .side-box a:hover{
-      color:#0066ff;
-    }
-
-    /* --------------------------
-       FOOTER
-    --------------------------- */
-    footer{
-      margin-top:40px;
-      background:#1e1e1e;
-      color:#fff;
-      padding:25px 0;
-      text-align:center;
-      font-size:14px;
-    }
+    /* Minimal inline styles untuk preview mandiri */
+    :root{--accent:#2e6d3e;--muted:#666}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;line-height:1.6;margin:0;color:#111;background:#fff}
+    .container{max-width:920px;margin:32px auto;padding:0 16px}
+    header.site-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    header .brand{font-weight:700;color:var(--accent);font-size:20px;text-decoration:none}
+    nav.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:12px}
+    article.article{background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(20,20,20,0.04)}
+    .article h1{font-size:28px;margin:6px 0 12px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:18px}
+    .hero{width:100%;height:auto;border-radius:8px;overflow:hidden;margin-bottom:18px}
+    .hero img{width:100%;display:block}
+    .article p{margin:12px 0}
+    .article h2{margin-top:20px}
+    .tips{background:#f7f8fa;padding:12px;border-left:4px solid var(--accent);border-radius:6px}
+    .share{display:flex;gap:8px;margin-top:18px}
+    .share a{padding:8px 12px;border-radius:6px;text-decoration:none;border:1px solid #eee;font-size:14px}
+    .related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:22px}
+    .related .card{padding:12px;border:1px solid #eee;border-radius:8px}
+    footer{margin:40px 0 80px;color:var(--muted);font-size:13px}
+    @media (max-width:600px){.article h1{font-size:20px}}
   </style>
 </head>
 <body>
+  <div class="container">
+    <header class="site-header">
+      <a class="brand" href="index.html">Republik Mancing</a>
+      <div style="margin-left:auto;color:var(--muted);font-size:14px">Update Lomba • Spot • Tips</div>
+    </header>
 
-<header>
-  <div class="nav">
-    <div class="logo">RepublikMancing</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#">Berita</a>
-      <a href="#">Video</a>
-      <a href="#">Tips</a>
-      <a href="#">Lomba</a>
+    <nav class="breadcrumb">
+      <a href="index.html">Beranda</a> › <a href="berita.html">Berita</a>
     </nav>
-  </div>
-</header>
 
-<div class="breaking">
-  <marquee>Breaking News: Spot babon di Waduk Jatiluhur kembali pecah rekor! | Event lomba mancing nasional dimulai minggu ini!</marquee>
-</div>
+    <article class="article">
+      <h1>Teknik Umpan Malam Hari yang Bikin Patin Melesat</h1>
+      <div class="meta">Oleh <strong>Admin Republik Mancing</strong> • 4 Desember 2025 • <span>Keunggulan: Teknik malam • Umpan racikan</span></div>
 
-<div class="container">
+      <div class="hero">
+        <img src="https://picsum.photos/1200/600?random=2" alt="Patin Strike di malam hari">
+      </div>
 
-  <!-- ==========================
-       KONTEN ARTIKEL
-  =========================== -->
-  <div class="content">
-
-    <h1>Adu Sengit Dengan Konten Kreator – Puas Narikin Ikan Sampai 76 Ekor</h1>
-
-    <div class="meta">Oleh Redaksi • 4 Desember 2025 • Republik Mancing</div>
-
-    <img src="assets/img/berita/utama1.jpg" alt="Foto mancing">
-
-    <div class="isi">
       <p>
-        Persaingan seru terjadi antara dua konten kreator mancing yang sedang melakukan challenge narik ikan terbanyak
-        dalam waktu dua jam. Aksi keduanya menarik perhatian para pemancing di lokasi dan ribuan penonton online.
+        Memancing patin di malam hari punya sensasi tersendiri: serangan lebih ganas, peluang dapat ukuran besar lebih tinggi. Namun agar hasilnya maksimal, diperlukan racikan umpan dan teknik pemasangan yang tepat. Berikut panduan lengkap dari persiapan, racikan umpan, sampai trik pemasangan yang sudah terbukti di lapangan.
       </p>
+
+      <h2>1. Persiapan Spot & Peralatan</h2>
       <p>
-        Dengan umpan racikan khusus dan teknik lempar akurat, salah satu kreator berhasil mengumpulkan total 76 ekor ikan,
-        memecahkan rekor challenge minggu sebelumnya.
+        Pilih spot yang memiliki arus tenang di malam hari—seperti pinggiran bendungan, muara sungai, atau sudut kolam pemancingan. Perlengkapan dasar:
       </p>
+      <ul>
+        <li>Joran medium-heavy 7–9 ft</li>
+        <li>Reel dengan drag kuat (minimal 8–12 kg)</li>
+        <li>Senar PE 0.6–1.0 atau monofil 0.35–0.6 mm</li>
+        <li>Leader fluorocarbon 0.35–0.6 mm</li>
+        <li>Pelampung kecil (opsional) dan pemberat sesuai arus</li>
+      </ul>
+
+      <h2>2. Racikan Umpan Jitu</h2>
       <p>
-        Pertarungan berlangsung sengit namun tetap seru tanpa ada ketegangan. Keduanya bahkan saling berbagi teknik
-        setelah challenge selesai.
+        Berikut dua resep umpan malam yang sering dipakai dan mudah dibuat:
       </p>
-    </div>
 
-    <!-- SHARE -->
-    <div class="share-box">
-      <span>Bagikan:</span>
+      <h3>Resep A — Umpan Ikan + Tepung</h3>
+      <ol>
+        <li>200 gr ikan teri/ikan segar cincang halus</li>
+        <li>150 gr tepung roti/tepung ikan</li>
+        <li>50 gr pati singkong (aksi pengikat)</li>
+        <li>1 sdm minyak ikan atau minyak kelapa</li>
+        <li>1 sdm aroma vanila atau serai (opsional)</li>
+      </ol>
+      <p>Campur semua bahan, uleni sampai padat, bentuk bulatan sebesar bola pingpong. Simpan di wadah tertutup saat malam hari.</p>
 
-      <a href="#" class="wa">WhatsApp</a>
-      <a href="#" class="fb">Facebook</a>
-      <a href="#" class="tw">X / Twitter</a>
-      <a href="#">Copy Link</a>
-    </div>
+      <h3>Resep B — Umpan Pisang-Keju (Alternatif manis)</h3>
+      <p>
+        Pisang matang dilumatkan dicampur tepung terigu sedikit, parutan keju, dan sedikit madu. Umpan ini menarik untuk patin yang menyukai rasa manis.
+      </p>
 
-    <!-- RELATED -->
-    <div class="related">
-      <h3>Berita Terkait</h3>
-      <a href="#">Teknik Dasar Mancing Babon untuk Pemula</a>
-      <a href="#">5 Spot Andalan Para Master Mancing Indo</a>
-      <a href="#">Cara Memilih Umpan yang Paling Ampuh di Air Keruh</a>
-    </div>
+      <h2>3. Teknik Pemasangan & Strategi Pancing</h2>
+      <p>
+        Untuk malam hari gunakan rig sederhana: hook size 2/0–4/0 (tergantung ukuran ikan), hair rig pendek, atau paternoster kecil. Letakkan umpan di dasar (bottom fishing) dengan pemberat cukup agar umpan tidak hanyut terbawa arus.
+      </p>
 
-  </div>
+      <div class="tips">
+        <strong>Tip lapangan:</strong> Biarkan umpan mengendap 5–10 menit setelah cast—patin sering menggulung umpan ketika suasana benar-benar tenang.
+      </div>
 
-  <!-- ==========================
-       SIDEBAR
-  =========================== -->
-  <div class="sidebar">
+      <h2>4. Waktu Terbaik & Tanda Serangan</h2>
+      <p>
+        Jam terbaik biasanya antara jam 19.00–01.00, terutama saat bulan redup. Tanda serangan malam sering berupa getaran halus atau suara berat di reel; jangan langsung menarik—biarkan kancing sedikit, maka patin akan menggulung dan menarik lebih kuat.
+      </p>
 
-    <div class="side-box">
-      <h3>Populer</h3>
-      <a href="#">Cara Meracik Umpan Ikan Mas Anti Zonks</a>
-      <a href="#">Spot Baru di Karawang Pecah Rekor Babon</a>
-      <a href="#">Review Joran 300 Ribuan yang Ternyata Gahar</a>
-      <a href="#">Video: Strike Ikan 9 Kg Pakai Senar Tipis</a>
-    </div>
+      <h2>5. Keamanan & Etika Memancing</h2>
+      <p>
+        Selalu pastikan keselamatan: pakai life jacket bila mancing di perahu, gunakan headlamp, dan jangan meninggalkan sampah. Lepas ikan kecil agar populasi tetap lestari.
+      </p>
 
-  </div>
+      <blockquote>
+        "Kesabaran di malam hari sering dibayar oleh strike yang besar." — Tim Republik Mancing
+      </blockquote>
 
-</div>
+      <p>
+        Semoga teknik dan racikan di atas membantu meningkatkan catch rate kamu saat mancing patin malam. Kalau mau, kami bisa bagikan <strong>template log memancing</strong> supaya kamu bisa mencatat spot, waktu, dan resep umpan yang paling efektif.
+      </p>
+
+      <div class="share">
+        <a href="https://api.whatsapp.com/send?text=Teknik%20Umpan%20Malam%20Hari%20-%20https://republikmancing.com/artikel/teknik-umpan-malam.html" target="_blank">Bagikan ke WhatsApp</a>
+        <a href="#" onclick="window.print();return false;">Cetak / Print</a>
+        <a href="#comments">Lihat Komentar</a>
+      </div>
+
+      <section class="related">
+        <div class="card">
+          <h4><a href="article-teknik-umpan-dasar.html">Teknik Umpan Dasar untuk Pemula</a></h4>
+          <p class="meta">2 Desember 2025 • Tips</p>
+        </div>
+        <div class="card">
+          <h4><a href="article-spot-bendungan.html">Spot Bendungan Favorit untuk Patin</a></h4>
+          <p class="meta">28 November 2025 • Spot</p>
+        </div>
+        <div class="card">
+          <h4><a href="article-gear-rekomendasi.html">Rekomendasi Gear: Joran & Reel untuk Patin</a></h4>
+          <p class="meta">15 November 2025 • Gear</p>
+        </div>
+      </section>
+
+      <hr style="margin-top:22px">
+
+      <section id="comments">
+        <h3>Komentar</h3>
+        <p style="color:var(--muted)">Belum ada komentar. Jadilah yang pertama memberikan pengalaman mancingmu!</p>
+        <form style="display:flex;flex-direction:column;gap:8px;max-width:520px;margin-top:12px">
+          <input type="text" placeholder="Nama" required style="padding:10px;border-radius:6px;border:1px solid #ddd">
+          <textarea placeholder="Tulis komentar..." rows="4" required style="padding:10px;border-radius:6px;border:1px solid #ddd"></textarea>
+          <button type="submit" style="padding:10px;border-radius:6px;border:0;background:var(--accent);color:#fff;cursor:pointer">Kirim Komentar</button>
+        </form>
+      </section>
+
+    </article>
+
  <footer style="background:#111;color:#ddd;padding:40px 20px;margin-top:40px">
   <div style="max-width:1100px;margin:auto;display:flex;flex-wrap:wrap;gap:30px;">
 
@@ -333,6 +203,6 @@
     © 2026 Republik Mancing. Seluruh hak cipta dilindungi.
   </div>
 </footer>
+  </div>
 </body>
 </html>
-
