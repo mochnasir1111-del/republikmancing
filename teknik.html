@@ -16,7 +16,9 @@
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:#0f172a;line-height:1.6}
-
+     /* SEARCH */
+     .search-area{margin-left:auto}
+     .search-area input{padding:8px 12px;border:1px solid #e3e6ea;border-radius:8px;width:240px}
     /* header */
     .site-header{position:sticky;top:0;backdrop-filter:blur(6px);background:rgba(255,255,255,0.85);z-index:100;border-bottom:1px solid #eef2f7}
     .container{max-width:var(--maxw);margin:0 auto;padding:24px}
@@ -61,6 +63,9 @@
       .layout{grid-template-columns:1fr;}
       aside{order:2}
     }
+    /* --- ZOOM EFFECT ALA DETIK --- */
+    img {transition: transform .35s ease, filter .35s ease;display: block;}
+    img:hover {transform: scale(1.06);filter: brightness(0.9);}
   </style>
 </head>
 <body>
@@ -74,8 +79,11 @@
         <a href="teknik.html"aria-current="page">Teknik</a>
         <a href="spot.html">Spot</a>
         <a href="video-detail.html">Video</a>
-        <a href="tentang.html">Tentang</a>"
+        <a href="tentang.html">Tentang</a>
       </nav>
+      <div class="search-area">
+        <input type="search" placeholder="Cari berita, spot, atau tips..." aria-label="Search">
+       </div>
     </div>
   </header>
 
