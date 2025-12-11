@@ -159,6 +159,12 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
   .news-card:hover img {transform: scale(1.05);}
   .news-card:hover .title {color: #ff3939;}
   .title {transition: color .2s ease;}
+
+  .search-area {position: relative;}
+  .search-results {position: absolute;width: 100%;background: #fff;border: 1px solid #ddd;border-top: none;max-height: 250px;overflow-y: auto;z-index: 50;}
+  .result-item {display: block;padding: 10px;font-size: 14px;border-bottom: 1px solid #eee;text-decoration: none;color: #333;}
+  .result-item:hover {background: #f4f4f4;}
+  .no-result {padding: 10px;font-size: 14px;color: #777;}
   </style>
 </head>
 <body>
@@ -180,7 +186,8 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
         <a href="tentang.html"class="hover-red">Tentang</a>
       </nav>
       <div class="search-area">
-        <input type="search" placeholder="Cari berita, spot, atau tips..." aria-label="Search">
+       <input type="search" id="searchInput" placeholder="Cari berita, spot, atau tips..." aria-label="Search">
+        <div id="searchResults" class="search-results" style="display:none;"></div>
        </div>
       </div>
     <!-- INFO LOMBA BERJALAN -->
@@ -343,7 +350,7 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
           <div class="card">
             <div style="font-weight:800;margin-bottom:8px">Highlight Video</div>
             <iframe width="100%" height="170" src="https://www.youtube.com/embed/jqUyxauQJLg?si=RLcOtWVf3kludHZW" title="YouTube video" frameborder="0" allowfullscreen style="border-radius:8px"></iframe>
-            <div style="margin-top:10px"><a class="btn hover-red" href="https://www.youtube.com/Republikmancing37">Kunjungi Channel</a></div>
+            <div style="margin-top:10px"><a class="btn hover-red" href="https://www.youtube.com/RepublikMancing37">Kunjungi Channel</a></div>
           </div>
      <!-- WIDGET: BANNER IKLAN -->
      <div class="widget ad-box">
@@ -364,11 +371,12 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
       <p class="small">Slot banner, sidebar, dan sponsor event. Hubungi: iklan@republikmancing.com</p>
       <div style="margin-top:8px">
         </div></div></a></div>
-       <div class="visitor-stats card" style="padding:15px;margin-top:20px;border:1px solid #eee;border-radius:10px;">
-      <h4 style="margin-bottom:10px;">📊 Statistik Pengunjung</h4>
-     <p>Total Pengunjung: <span id="total-visitors">0</span></p>
-    <p>Hari Ini: <span id="today-visitors">0</span></p>
-     </div>
+        <div class="visitor-stats card" style="padding:15px;margin-top:20px;border:1px solid #eee;border-radius:10px;">
+  <h4 style="margin-bottom:10px;">📊 Statistik Pengunjung</h4>
+  <p>Total Pengunjung: <span id="total-visitors">0</span></p>
+  <p>Hari Ini: <span id="today-visitors">0</span></p>
+</div>
+
       <!-- WIDGET: NEWSLETTER -->
       <div class="widget">
         <h3>Newsletter</h3>
@@ -506,10 +514,55 @@ const todayKey = KEY + "-" + new Date().toISOString().slice(0,10);
 fetch(`https://api.countapi.xyz/hit/${todayKey}/today`)
   .then(r => r.json())
   .then(data => {
-    document.getElementById("today-visitors").textContent = data.value.toLocaleString();});
+    document.getElementById("today-visitors").textContent = data.value.toLocaleString();
+  });
+     // Data artikel kamu (bisa ditambah kapan saja)
+  const articles = [
+    {
+      title: "Ulasan Reel Shimano Stella",
+      url: "/berita/shimano-stella-ulasan",
+      keywords: "shimano stella ulasan review reel terbaik"
+    },
+    {
+      title: "Lomba Mancing MMFC Halal Bihalal",
+      url: "/berita/lomba-mancing-mmfc",
+      keywords: "lomba mancing mmfc halal bihalal"
+    },
+    {
+      title: "Spot Mancing Ikan Mas Mantap",
+      url: "/berita/spot-mancing-ikan-mas",
+      keywords: "spot mancing ikan mas kolam harian"
+    }
+  ];
+
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    searchResults.innerHTML = "";
+
+    if (query.length < 2) {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const filtered = articles.filter(item =>
+      item.title.toLowerCase().includes(query) ||
+      item.keywords.toLowerCase().includes(query)
+    );
+
+    if (filtered.length === 0) {
+      searchResults.innerHTML = "<p class='no-result'>Tidak ada hasil ditemukan.</p>";
+    } else {
+      filtered.forEach(item => {
+        searchResults.innerHTML += `
+          <a href="${item.url}" class="result-item">${item.title}</a>
+        `;
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
 </script>
 </html>
-
-
-
-
