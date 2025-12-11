@@ -364,6 +364,11 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
       <p class="small">Slot banner, sidebar, dan sponsor event. Hubungi: iklan@republikmancing.com</p>
       <div style="margin-top:8px">
         </div></div></a></div>
+       <div class="visitor-stats card" style="padding:15px;margin-top:20px;border:1px solid #eee;border-radius:10px;">
+      <h4 style="margin-bottom:10px;">📊 Statistik Pengunjung</h4>
+     <p>Total Pengunjung: <span id="total-visitors">0</span></p>
+    <p>Hari Ini: <span id="today-visitors">0</span></p>
+     </div>
       <!-- WIDGET: NEWSLETTER -->
       <div class="widget">
         <h3>Newsletter</h3>
@@ -489,23 +494,22 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 <script>
-// ====== SIMPLE WEBSITE STATISTIC FOR REPUBLIK MANCING ======
-// Generate visitor ID
-if (!localStorage.getItem("rm_visitor_id")) {
-  localStorage.setItem("rm_visitor_id", "RM-" + Math.random().toString(36).substr(2,9));}
-// Data statistik
-const stats = {page: window.location.pathname, visitTime: new Date().toISOString(), referrer: document.referrer || "Direct", userAgent: navigator.userAgent,lang: navigator.language,device: /mobile/i.test(navigator.userAgent) ? "Mobile" : "Desktop"};
-// Tampilkan di console
-console.log("RepublikMancing Stats:", stats);
-// Kirim ke server (jika ada backend)
-fetch("https://yourserver.com/statistik", {
-  method: "POST",
-  headers: {"Content-Type": "application/json"},
-  body: JSON.stringify(stats)
-}).catch(()=>{});
+// KEY unik untuk website RepublikMancing
+const KEY = "republimancing-visitor-counter-v1";
+// Hitung total
+fetch(`https://api.countapi.xyz/hit/${KEY}/total`)
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("total-visitors").textContent = data.value.toLocaleString();});
+// Hitung per hari
+const todayKey = KEY + "-" + new Date().toISOString().slice(0,10);
+fetch(`https://api.countapi.xyz/hit/${todayKey}/today`)
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById("today-visitors").textContent = data.value.toLocaleString();});
 </script>
-
 </html>
+
 
 
 
