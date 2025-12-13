@@ -205,9 +205,7 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
   <!-- TOP NAV -->
   <header class="topbar">
     <div class="top-inner">
-      <button class="hamburger" id="hamburger" aria-label="Buka menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button id="openOff" class="menu-btn">☰</button>
       <div class="brand"><a href="index.html">Republik<span>Mancing</span></a></div>
       <nav class="main-nav" id="mainNav">
         <a href="index.html"class="hover-red">Beranda</a>
@@ -258,7 +256,6 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
       <a href="tentang.html">Tentang</a>
     </nav>
   </div>
-    <button id="openOff" class="menu-btn">☰</button>
   <div class="offcanvas-backdrop" id="offBackdrop"></div>
   <!-- BREAKING NEWS TICKER -->
   <div class="breaking-wrap">
@@ -411,7 +408,7 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
           <li><a href="babon naik 16 kg.html">Babon 12kg Pecahkan Rekor</a></li>
           <li><a href="joki bekas.html">Joki Bekas Merajai Total Di Setiap Empang</a></li>
           <li><a href="hut mmfc 14th.html">Anniversary MMFC Ke 14 Tahun</a></li>
-          <li><a href="battle of creator.html">Battle Of Creator 2025</a></li>
+          <li><a href="cs 101.html">Event MMFC-CS 101 Joglo</a></li>
         </ol>
       </div>
       <!-- WIDGET: VIDEO -->
@@ -504,11 +501,10 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
   </div>
 </footer>
 <script>
-const slides = document.querySelectorAll(".slide");
-const prevBtn = document.querySelector("[data-action='prev']");
-const nextBtn = document.querySelector("[data-action='next']");
-const dotsContainer = document.getElementById("sliderDots");
-let index = 0;
+document.addEventListener("DOMContentLoaded", function () {
+  ...
+});
+
 // --- Buat DOTS ---
 slides.forEach((_, i) => {
   const btn = document.createElement("button");
