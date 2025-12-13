@@ -10,7 +10,7 @@
     /* ---------- RESET ---------- */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --accent:#1e8f1e;
+  --accent:#c00;
   --accent-2:#1e8f1e;
   --muted:#6b6b6b;
   --bg:#f5f6f7;
@@ -21,13 +21,28 @@
   --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
 html,body{font-family:var(--font);background:var(--bg);color:#222}
 /* ---------- TOP BAR / NAV ---------- */
-.topbar{background:var(--card);box-shadow:var(--shadow);position:sticky;top:0;z-index:200}
+.topbar{background:var(--card);box-shadow:var(--shadow);position:relative; /* penting */z-index:100;}
 .top-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px}
 .brand a{font-weight:800;font-size:20px;color:#111;text-decoration:none}
 .brand span{color:var(--accent)}
-.main-nav{margin-left:20px;display:flex;gap:14px}
+.main-nav{margin-left:auto; /* dorong ke kanan */display:flex; gap:16px;white-space:nowrap;}
 .main-nav a{text-decoration:none;color:#333;font-weight:600;padding:6px 8px;border-radius:6px}
 .main-nav a:hover{background:#f0f6ff;color:var(--accent)}
+/* ---------- SUBHEADER ---------- */
+.subheader{
+  background:#fff;
+  border-bottom:2px solid var(--accent);
+  position:sticky;
+  top:0;
+  z-index:90;
+}
+
+.sub-nav{
+  max-width:var(--max-width);
+  margin:0 auto;
+  display:flex;gap:18px;padding:8px 16px;overflow-x:auto;white-space:nowrap;}
+.sub-nav a{font-size:14px;font-weight:600;color:#333;text-decoration:none;}
+.sub-nav a:hover{color:var(--accent);}
 /* HAMBURGER */
 .hamburger{display:none;background:transparent;border:0;cursor:pointer;padding:6px 8px}
 .hamburger span{display:block;width:22px;height:2px;background:#333;margin:4px 0;border-radius:2px}
@@ -199,29 +214,101 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
    .menu-btn {font-size: 24px; background: none;border: none;cursor: pointer;display: none;}
 @media (max-width: 900px) {
   .menu-btn {display: block;}}
+    /* TOPBAR */
+  .topbar{background:#111;color:#fff;}
+  .top-inner{max-width:1200px;margin:auto;display:flex;align-items:center;gap:20px;padding:10px 16px;}
+  .brand a{font-size:20px;font-weight:800;color:#fff;}
+  .brand span{color:#c00}
+  .main-nav{display:flex;gap:16px;margin-left:auto;}
+  .main-nav a{font-size:14px;font-weight:600;color:#fff;}
+  .hover-red:hover{color:#c00}
+   /* SUBHEADER */
+  .subheader{background:#fff;border-bottom:2px solid #c00;}
+  .sub-nav{max-width:1200px;margin:auto;display:flex;gap:18px;padding:8px 16px;overflow-x:auto;white-space:nowrap;}
+  .sub-nav a{font-size:14px;font-weight:600;color:#333;}
+  .sub-nav a:hover{color:#c00;}
+    /* STICKY (OPSIONAL, KEREN) */
+  .subheader{position:sticky;top:52px; /* tinggi header */z-index:90;}
+     /* MOBILE */
+    @media(max-width:768px){
+  .main-nav{display:none;}}
+  /* ================= HEADER GLOBAL ================= */
+  .topbar{background:#111;color:#fff;position:sticky;top:0;z-index:200;}
+  .top-inner{max-width:1200px;margin:auto;display:flex;align-items:center;gap:20px;padding:12px 16px;}
+  .brand a{font-size:20px;font-weight:800;color:#fff;text-decoration:none;}
+  .brand span{color:#c00}
+  .main-nav{display:flex;gap:16px;margin-left:auto;}
+  .main-nav a{font-size:14px;font-weight:600;color:#fff;text-decoration:none;}
+  .hover-red:hover{color:#c00}
+   /* SUBHEADER */
+  .subheader{background:#fff;border-bottom:2px solid #c00;position:sticky;top:52px;z-index:90;}
+  .sub-nav{max-width:1200px;margin:auto;display:flex;gap:18px;padding:8px 16px;overflow-x:auto;}
+  .sub-nav a{font-size:14px;font-weight:600;color:#333;text-decoration:none;}
+  .sub-nav a:hover{color:#c00}
+   /* OFFCANVAS */
+  .offcanvas{position:fixed;top:0;right:-100%;width:280px;height:100%;background:#111;color:#fff;z-index:9999;padding:20px;transition:.3s;}
+  .offcanvas.active{right:0}
+  .off-nav{display:flex;flex-direction:column;gap:14px;margin-top:40px;}
+  .off-nav a{color:#fff;text-decoration:none;}
+  .close-off{position:absolute;top:10px;right:14px;font-size:28px;background:none;border:none;color:#fff;cursor:pointer;}
+    /* MOBILE */
+  .menu-btn{display:none;font-size:24px;background:none;border:none;color:#fff;}
+@media(max-width:768px){
+  .main-nav{display:none}
+  .menu-btn{display:block}}
+
+  .brand-logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;color:#fff;text-decoration:none;}
+  .brand-logo img{width:34px;height:34px;object-fit:contain;}
   </style>
 </head>
 <body>
   <!-- TOP NAV -->
-  <header class="topbar">
-    <div class="top-inner">
-      <button id="openOff" class="menu-btn">☰</button>
-      <div class="brand"><a href="index.html">Republik<span>Mancing</span></a></div>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html"class="hover-red">Beranda</a>
-        <a href="berita.html"class="hover-red">Berita</a>
-        <a href="event.html"class="hover-red">Event</a>
-        <a href="teknik.html"class="hover-red">Teknik</a>
-        <a href="spot.html"class="hover-red">Spot</a>
-        <a href="video-detail.html"class="hover-red">Video</a>
-        <a href="donasi-foto.html">Download Foto</a>
-        <a href="tentang.html"class="hover-red">Tentang</a>
-      </nav>
-      <div class="search-area">
-       <input type="search" id="searchInput" placeholder="Cari berita, spot, atau tips..." aria-label="Search">
-        <div id="searchResults" class="search-results" style="display:none;"></div>
-       </div>
-      </div>
+<!-- HEADER UTAMA -->
+<!-- HEADER GLOBAL -->
+<header class="topbar">
+  <div class="top-inner">
+    <button id="openOff" class="menu-btn" aria-label="Menu">☰</button>
+
+    <div class="brand">
+     <a href="index.html" class="brand-logo">
+  <img src="assets/img/icon/rm.png" alt="Logo Republik Mancing">Republik<span>Mancing</span></a>
+    </div>
+
+    <nav class="main-nav">
+      <a href="index.html" class="hover-red">Beranda</a>
+      <a href="berita.html" class="hover-red">Berita</a>
+      <a href="event.html" class="hover-red">Event</a>
+      <a href="video.html" class="hover-red">Video</a>
+      <a href="tentang.html" class="hover-red">Tentang</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SUBHEADER GLOBAL -->
+<div class="subheader">
+  <nav class="sub-nav">
+    <a href="profil-angler2.html">Profil Angler</a>|
+    <a href="review-empang.html">Review Empang</a>|
+    <a href="teknik.html">Teknik</a>|
+    <a href="spot.html">Spot</a>|
+    <a href="donasi-foto.html">Download Foto</a>|
+  </nav>
+</div>
+
+<!-- OFFCANVAS MOBILE -->
+<div class="offcanvas" id="offcanvas">
+  <button class="close-off" id="closeOff">×</button>
+  <nav class="off-nav">
+    <a href="index.html">Beranda</a>
+    <a href="berita.html">Berita</a>
+    <a href="event.html">Event</a>
+    <a href="video.html">Video</a>
+    <a href="tentang.html">Tentang</a>
+  </nav>
+</div>
+<div class="offcanvas-backdrop" id="offBackdrop"></div>
+
+
     <!-- INFO LOMBA BERJALAN -->
    <div class="info-lomba">
    <div class="running-text">
