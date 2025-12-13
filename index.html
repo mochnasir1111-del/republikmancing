@@ -185,6 +185,20 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
 .ad-responsive a{display:block;}
 .ad-responsive img{width:100%;height:auto;border-radius:8px;box-shadow:0 3px 8px rgba(0,0,0,0.15);transition:0.3s;}
 .ad-responsive img:hover{transform:scale(1.03);}
+/* OFFCANVAS MOBILE */
+.offcanvas {position: fixed; top: 0;right: -100%;width: 280px;height: 100%;background: #111;color: #fff;z-index: 9999;padding: 20px;transition: right 0.3s ease;}
+.offcanvas.active {right: 0;}
+.off-nav {
+  display: flex;flex-direction: column;
+  gap: 14px;margin-top: 40px;}
+.off-nav a {color: #fff;text-decoration: none;font-size: 16px;}
+.close-off {position: absolute;top: 10px;right: 14px;font-size: 28px;background: none; border: none;color: #fff;cursor: pointer;}
+/* TAMPILKAN HANYA DI MOBILE */
+@media (min-width: 900px) {
+  .offcanvas {display: none;}}
+   .menu-btn {font-size: 24px; background: none;border: none;cursor: pointer;display: none;}
+@media (max-width: 900px) {
+  .menu-btn {display: block;}}
   </style>
 </head>
 <body>
@@ -244,6 +258,7 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
       <a href="tentang.html">Tentang</a>
     </nav>
   </div>
+    <button id="openOff" class="menu-btn">☰</button>
   <div class="offcanvas-backdrop" id="offBackdrop"></div>
   <!-- BREAKING NEWS TICKER -->
   <div class="breaking-wrap">
@@ -425,12 +440,12 @@ html,body{font-family:var(--font);background:var(--bg);color:#222}
       <p class="small">Slot banner, sidebar, dan sponsor event. Hubungi: iklan@republikmancing.com</p>
       <div style="margin-top:8px">
         </div></div></a></div>
-        <div class="visitor-stats card" style="padding:15px;margin-top:20px;border:1px solid #eee;border-radius:10px;">
-  <h4 style="margin-bottom:10px;">📊 Statistik Pengunjung</h4>
-  <p>Total Pengunjung: <span id="total-visitors">0</span></p>
-  <p>Hari Ini: <span id="today-visitors">0</span></p>
-</div>
-
+        <!-- DATA PENGUNJUNG ARTIKEL -->
+      <div class="artikel-stats">
+     <div class="stat-item">👁️ <span id="viewCount">0</span> kali dibaca</div>
+    <div class="stat-item">❤️ <span id="likeCount">0</span> suka</div>
+     <div class="stat-item">📅 <span id="readDate"></span></div>
+      </div>
       <!-- WIDGET: NEWSLETTER -->
       <div class="widget">
         <h3>Newsletter</h3>
@@ -633,11 +648,21 @@ document.addEventListener("DOMContentLoaded", function () {
       filtered.forEach(item => {
         searchResults.innerHTML += `
           <a href="${item.url}" class="result-item">${item.title}</a>
-        `;
-      });
-    }
-
+  `;});}
     searchResults.style.display = "block";
   });
+  const offcanvas = document.getElementById('offcanvas');
+  const openBtn = document.getElementById('openOff');
+  const closeBtn = document.getElementById('closeOff');
+  openBtn.addEventListener('click', () => {
+    offcanvas.classList.add('active');
+  });
+  closeBtn.addEventListener('click', () => {
+    offcanvas.classList.remove('active');
+  });
+  // === TANGGAL DIBACA ===
+let today = new Date();
+let tgl = today.getDate()+"-"+(today.getMonth()+1)+"-"+today.getFullYear();
+document.getElementById("readDate").innerText = tgl;
 </script>
 </html>
